@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tuOtroElemento" type="id" />
+    <item name="countryTextView" type="id" />
+    <item name="casesTextView" type="id" />
+    <item name="deathsTextView" type="id" />
+    <item name="recoveredTextView" type="id" />
+</resources>

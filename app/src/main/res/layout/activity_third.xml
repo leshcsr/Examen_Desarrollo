@@ -6,18 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".ThirdActivity">
 
-    <!-- Agrega el botón para regresar-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="third_activity"
-        android:textSize="24sp" />
+        android:text="-- Graficas --"
+        android:textSize="30sp" />
+
 
     <Button
         android:id="@+id/btnBackToFirst3to1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Regresar a la Primera Vista"
+        android:text="Regresar"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_centerInParent="true"/>
 
 </RelativeLayout>

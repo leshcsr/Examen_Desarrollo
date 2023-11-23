@@ -19,5 +19,9 @@ class ThirdActivity : AppCompatActivity() {
             val intent = Intent(this, Vista1Activity::class.java)
             startActivity(intent)
         }
+
+
+
+
     }
 }

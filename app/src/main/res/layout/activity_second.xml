@@ -7,17 +7,116 @@
     tools:context=".SecondActivity">
 
     <TextView
+        android:id="@+id/covidDetailsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/second_activity"
-        android:textSize="24sp" />
+        android:layout_marginTop="16dp"
+        android:text="Detalles de COVID-19"
+        android:textSize="18sp" />
+    <!-- android:layout_below="covidDetailsTextView" -->
 
-    <!-- Agrega el botón para regresar-->
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/covidDetailsTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="30dp">
+
+        <!-- Fila 1 -->
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="País"
+                android:padding="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Región"
+                android:padding="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Casos"
+                android:padding="10dp"/>
+        </TableRow>
+
+        <!-- Fila 2 -->
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Canada"
+                android:padding="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alberta"
+                android:padding="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 "
+                android:padding="10dp"/>
+            <!-- ... Repite el patrón para las demás filas ... -->
+        </TableRow>
+
+        <!-- Fila 3 -->
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="United States"
+                android:padding="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Texas"
+                android:padding="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 "
+                android:padding="10dp"/>
+            <!-- ... Repite el patrón para las demás filas ... -->
+        </TableRow>
+        <!-- Fila 4 -->
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mexico"
+                android:padding="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Veracruz"
+                android:padding="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5 "
+                android:padding="10dp"/>
+            <!-- ... Repite el patrón para las demás filas ... -->
+        </TableRow>
+
+    </TableLayout>
+
+
+
+
+
+<!-- Agrega el botón para regresar-->
     <Button
         android:id="@+id/btnBackToFirst"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Regresar a la Primera Vista"
-        android:layout_centerInParent="true"/>
+        android:text="Regresar"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp" />
 
 </RelativeLayout>
