@@ -14,8 +14,14 @@ import kotlinx.coroutines.withContext
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+/**
+ * Actividad principal de la aplicación que muestra datos relacionados con COVID-19.
+ */
 class Vista1Activity : AppCompatActivity() {
 
+    /**
+     * Método llamado al crear la actividad.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -42,6 +48,9 @@ class Vista1Activity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Método para realizar una llamada a la API y obtener datos relacionados con COVID-19.
+     */
     private fun fetchDataFromApi() {
         val retrofit = Retrofit.Builder()
             .baseUrl("https://covid-api.mmediagroup.fr/v1/")
@@ -65,6 +74,9 @@ class Vista1Activity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Método para actualizar la interfaz de usuario con los datos obtenidos de la API.
+     */
     private fun updateUI(covidDataList: List<CovidData>) {
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
         val adapter = CovidDataAdapter(covidDataList, object : CovidDataAdapter.ItemClickListener {
@@ -77,6 +89,4 @@ class Vista1Activity : AppCompatActivity() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
     }
-
-
 }

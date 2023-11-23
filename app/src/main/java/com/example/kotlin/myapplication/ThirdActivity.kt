@@ -20,8 +20,5 @@ class ThirdActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
-
-
     }
 }

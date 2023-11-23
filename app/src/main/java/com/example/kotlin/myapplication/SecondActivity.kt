@@ -7,8 +7,12 @@ import android.os.Parcelable
 import android.widget.Button
 import android.widget.TextView
 
-
 class SecondActivity : AppCompatActivity() {
+
+    /**
+     * Método que se llama cuando se crea la actividad.
+     * @param savedInstanceState Bundle que contiene el estado anterior de la actividad.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
@@ -21,7 +25,6 @@ class SecondActivity : AppCompatActivity() {
 
         // Obtén la información de CovidData del intent
         val covidData: Parcelable? = intent.getParcelableExtra("covidData")
-
 
         // Agrega un listener al botón para manejar el clic
         btnBackToFirst.setOnClickListener {

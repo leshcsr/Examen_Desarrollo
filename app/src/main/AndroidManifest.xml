@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Permiso para acceder a Internet -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -15,27 +16,27 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
 
-    <!-- Nueva Actividad -->
-    <activity android:name=".Vista1Activity"
-        android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
+        <!-- Actividad principal -->
+        <activity android:name=".Vista1Activity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
-    <activity android:name=".SecondActivity"
-        android:exported="true">
-    </activity>
+        <!-- Segunda Actividad -->
+        <activity android:name=".SecondActivity"
+            android:exported="true">
+        </activity>
 
-    <activity android:name=".ThirdActivity"
-        android:exported="true">
-    </activity>
+        <!-- Tercera Actividad -->
+        <activity android:name=".ThirdActivity"
+            android:exported="true">
+        </activity>
 
         <!-- Otras Actividades Pueden Ir Aquí -->
 
-
     </application>
-
 
 </manifest>
