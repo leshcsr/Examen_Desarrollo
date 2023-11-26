@@ -1,5 +1,4 @@
 package com.example.kotlin.myapplication
-import com.google.gson.annotations.SerializedName
 data class CovidDataResponse(
     val country: String,
     val region: String,
