@@ -2,6 +2,7 @@ package com.example.kotlin.myapplication
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,11 +24,12 @@ class Vista1Activity : AppCompatActivity() {
      * Método llamado al crear la actividad.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Iniciar la llamada a la API
-        fetchDataFromApi()
+        //initializeBinding()
+        getCovidData()
 
         // Configurar el listener para el BottomNavigationView
         val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
@@ -48,45 +50,20 @@ class Vista1Activity : AppCompatActivity() {
         }
     }
 
+    }
+
     /**
-     * Método para realizar una llamada a la API y obtener datos relacionados con COVID-19.
-     */
-    private fun fetchDataFromApi() {
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://covid-api.mmediagroup.fr/v1/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        val apiService = retrofit.create(CovidApiService::class.java)
-
-        // Utilizar un CoroutineScope para llamar a la API de manera asíncrona
+     * Apartir de aquí es la nueva version
+     *
+     * */
+    private fun getCovidData(){
         CoroutineScope(Dispatchers.IO).launch {
-            try {
-                val response = apiService.getCovidData("wLVPN1zV08lJYF7uXqgyPw==zVwp6TlVcAO1NLUf")
-
-                // Actualizar la interfaz de usuario en el hilo principal
-                withContext(Dispatchers.Main) {
-                    updateUI(response)
-                }
-            } catch (e: Exception) {
-                // Manejar errores, por ejemplo, mostrar un mensaje de error
-            }
+            val covidRepository = CovidRepository()
+            val result: CovidDataResponse? = covidRepository.getCovidData("Canada", "Alberta")
+            Log.d("CovidData", result.toString() ?: "Result is null")
         }
     }
 
-    /**
-     * Método para actualizar la interfaz de usuario con los datos obtenidos de la API.
-     */
-    private fun updateUI(covidDataList: List<CovidData>) {
-        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
-        val adapter = CovidDataAdapter(covidDataList, object : CovidDataAdapter.ItemClickListener {
-            override fun onItemClick(covidData: CovidData) {
-                // Manejar el clic del elemento de la lista
-                val intent = Intent(this@Vista1Activity, SecondActivity::class.java)
-                startActivity(intent)
-            }
-        })
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(this)
-    }
-}
+
+
+
