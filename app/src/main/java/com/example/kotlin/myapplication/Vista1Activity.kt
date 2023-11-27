@@ -3,17 +3,12 @@ package com.example.kotlin.myapplication
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+
 
 /**
  * Actividad principal de la aplicación que muestra datos relacionados con COVID-19.
@@ -50,8 +45,6 @@ class Vista1Activity : AppCompatActivity() {
         }
     }
 
-    }
-
     /**
      * Apartir de aquí es la nueva version
      *
@@ -60,9 +53,14 @@ class Vista1Activity : AppCompatActivity() {
         CoroutineScope(Dispatchers.IO).launch {
             val covidRepository = CovidRepository()
             val result: CovidDataResponse? = covidRepository.getCovidData("Canada", "Alberta")
-            Log.d("CovidData", result.toString() ?: "Result is null")
+            Log.d("CovidData", result.toString() )
+
         }
     }
+
+
+}
+
 
 
 
